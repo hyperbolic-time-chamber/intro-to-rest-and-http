@@ -275,14 +275,34 @@ Let's take a deeper dive into the above example, reposted below:
 ```javascript
 var http = require('http');
 
-var server = http.createServer(function(req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.write('Hello World!');
-  res.end();
+var server = http.createServer(function(request, response) {
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  response.write('Hello World!');
+  response.end();
 });
 
 server.listen(1337, '127.0.0.1');
 ```
+
+The `http` module exposes a method called `createServer` that behaves as it sounds; we can use it create a server. `createServer` returns an instance of `http.Server`.
+
+Note that we pass a callback function to `createServer` when we invoke it. This callback function is also known as a `request-handler`. As the name implies, the `request-handler` receives requests and sends responses when finished servicing a request.
+
+How do we "turn on" the server and make it available for connections?
+
+We invoke the listen method on the server instance.
+
+The first argument is the `port` that we are opening up. You can think of a `port` as a literal port on the sea, where ships dock, exchange supplies, and set sail. Similarly, a `port` is a connection that a computer makes available for other computers to connect to in order to start exchanging information.
+
+The second argument is an `ip address`. Since we are creating a server that runs locally on our computer, we need the `ip` for our `localhost`. This `ip` is `127.0.0.1`. When you see `127.0.0.1` and `localhost`, they are more or less interchangeable.
+
+Note that within the body of the `request-handler`, we are doing some work with the response object. Specifically we are:
+
+1.  Attaching a `statusCode` of 200 and the header `Content-Type` to our response.
+1.  Writing `'Hello World!'` to the response.
+1.  Indicating that we are done servicing the request and sending a response back to whichever client initiated the request.
+
+After the last line of the code block runs, we will be able to make all sorts of requests to `http://localhost:1337`.
 
 ## npm
 
