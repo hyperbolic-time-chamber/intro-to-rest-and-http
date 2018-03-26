@@ -1,0 +1,22 @@
+describe('My RESTful API', () => {
+  test('should respond with stringified JSON.', () => {});
+  test('should send back an object.', () => {});
+  test('should respond to GET requests to /api/locations/cities with a 200 status code.', () => {});
+  test('should respond to GET requests to /api/locations/cities with an object containing a `data` array of all the cities.', () => {});
+  test('should respond to POST requests to /api/locations/cities with a 201 status code if sending a city object that contains all required properties.', () => {});
+  test('should respond to POST requests to /api/locations/cities with a 400 status code if sending a city object that DOES NOT contain all required properties.', () => {});
+  test('should respond to POST requests to /api/locations/cities with the city object that was created.', () => {});
+  test('should respond to PUT requests to /api/locations/cities with a 200 status code.', () => {});
+  test('should respond to PUT requests to /api/locations/cities with the city object that was updated.', () => {});
+  test('should respond to DELETE requests to /api/locations/cities with a 200 status code.', () => {});
+  test('should respond to DELETE requests to /api/locations/cities with the city object that was deleted.', () => {});
+  test('should respond to GET requests to /api/locations/restaurants with a 200 status code.', () => {});
+  test('should respond to GET requests to /api/locations/restaurants with an object containing a `data` array of all the restaurants.', () => {});
+  test('should respond to POST requests to /api/locations/restaurants with a 201 status code if sending a restaurant object that contains all required properties.', () => {});
+  test('should respond to POST requests to /api/locations/restaurants with a 400 status code if sending a restaurant object that DOES NOT contain all required properties.', () => {});
+  test('should respond to POST requests to /api/locations/restaurants with the restaurant object that was created.', () => {});
+  test('should respond to PUT requests to /api/locations/restaurants with a 200 status code.', () => {});
+  test('should respond to PUT requests to /api/locations/restaurants with the restaurant object that was updated.', () => {});
+  test('should respond to DELETE requests to /api/locations/restaurants with a 200 status code.', () => {});
+  test('should respond to DELETE requests to /api/locations/restaurants with the restaurant object that was deleted.', () => {});
+});
