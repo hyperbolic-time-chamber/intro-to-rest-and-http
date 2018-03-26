@@ -16,6 +16,16 @@
 
 _[Back to Top](#table-of-contents)_
 
+We are going to build a RESTful API using Node.js.
+
+Our RESTful API will expose an interface that allows us to retrieve, send, modify, and delete data related to restaurants and cities. See [API Specification](#api-specification) for more detailed instructions. We will be applying what we learned about REST and HTTP throughout this exercise.
+
+There will be no front-end for this application. You may be wondering, "how am I to use my API then?" You will use Postman to interrogate your server. See [Prerequisite Technologies](#prerequisite-technologies) for further explanation.
+
+Use the tests to guide your implementation. Working through the tests in order will allow you to build up to a working implementation of this REST server.
+
+Once you have completed the exercise, take a moment to read through the README for Server-Side Concepts and REST as you will likely find that you have a better understanding of the concepts discussed given that you just completed an exercise putting the concepts into practice.
+
 ## Prerequisite Technologies
 
 _[Back to Top](#table-of-contents)_
@@ -29,6 +39,8 @@ Note that we will not be using a web application framework for this exercise i.e
 #### Postman
 
 _[Back to Top](#table-of-contents)_
+
+<!-- need to explain how to use postman -->
 
 ## API Specification
 
@@ -132,6 +144,16 @@ As shown above, each restaurant object must contain the following properties:
 #### What is it?
 
 _[Back to Top](#table-of-contents)_
+
+Simply put, Node is JavaScript that runs on the server.
+
+When we say "runs on the server" we mean runs on a computer, outside of the browser.
+
+To illustrate further, JavaScript that runs in the browser allows you to manipulate the DOM and create the front-end of a web application.
+
+JavaScript that runs on the server allows you to access files, write to databases, [open up ports](#how-to-create-a-server), [create servers](#how-to-create-a-server), etc.
+
+Just as JavaScript that runs in the browser is event-driven, so too is Node. This means that we retain all of the advantages of asynchronous non-blocking event-driven code on the server.
 
 #### Node.js Basics
 
@@ -307,3 +329,5 @@ After the last line of the code block runs, we will be able to make all sorts of
 ## npm
 
 _[Back to Top](#table-of-contents)_
+
+<!-- need to explain what npm is and how to use it -->
