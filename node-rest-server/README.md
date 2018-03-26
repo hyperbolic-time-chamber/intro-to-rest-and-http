@@ -2,9 +2,22 @@
 
 ## Table of Contents
 
+1.  [Overview](#overview)
+1.  [Prerequisite Technologies](#prerequisite-technologies)
+1.  [Postman](#postman)
+1.  [API Specification](#api-specification)
+1.  [Node.js](#node.js)
+1.  [What is it?](#what-is-it)
+1.  [Node.js Basics](#node.js-basics)
+1.  [npm](#npm)
+
 ## Overview
 
+_[Back to Top](#table-of-contents)_
+
 ## Prerequisite Technologies
+
+_[Back to Top](#table-of-contents)_
 
 * [Node.js version 8.10.0 (LTS)](https://nodejs.org/en/download/)
 * [npm version 5.6.0](https://docs.npmjs.com/) (comes installed with Node)
@@ -14,7 +27,11 @@ Note that we will not be using a web application framework for this exercise i.e
 
 #### Postman
 
+_[Back to Top](#table-of-contents)_
+
 ## API Specification
+
+_[Back to Top](#table-of-contents)_
 
 Expose the following endpoints and respond to requests according to the result column listed below.
 
@@ -113,9 +130,11 @@ As shown above, each restaurant object must contain the following properties:
 
 #### What is it?
 
-#### What does http://localhost:3000 mean?
+_[Back to Top](#table-of-contents)_
 
 #### Node.js Basics
+
+_[Back to Top](#table-of-contents)_
 
 Although it's possible to put all of our program logic in one big monolithic file, this is an anti-pattern we want to avoid in order to keep our codebase maintainable.
 
@@ -254,4 +273,6 @@ server.listen(1337, '127.0.0.1');
 
 [path module](https://nodejs.org/dist/latest-v8.x/docs/api/path.html) -->
 
-## NPM
+## npm
+
+_[Back to Top](#table-of-contents)_

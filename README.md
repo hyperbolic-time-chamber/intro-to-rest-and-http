@@ -27,8 +27,6 @@ I want to stress that although we are using Node.js to illustrate the concepts e
 
 ## Major Concepts
 
-_[Back to Top](#table-of-contents)_
-
 #### Request-Response Cycle
 
 _[Back to Top](#table-of-contents)_
