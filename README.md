@@ -13,6 +13,16 @@
 ## Introduction
 *[Back to Top](#table-of-contents)*
 
+This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) but have not yet been exposed to the concepts or REST or HTTP and have not yet written server-side code.
+
+It serves two purposes. 
+
+First, it serves the purpose of introducing Server-Side Concepts and REST. Below you will find a discussion of concepts that are important to developing an understanding of REST and HTTP.
+
+Second, it serves as a way of using a programming language to practice these concepts. Included in this repository is a directory titled `node-rest-server` that specifies a challenge and resources available to you to help you complete the challenge. You are to implement a REST server using Node.js. You will incremently build the REST server using the provided tests to guide you.
+
+I want to stress that although we are using Node.js to illustrate the concepts explored below, these concepts are not tied to any one specific programming language. Further iterations of this project will allow knowledge-seekers to implement a REST server in other languages e.g. Python, Java, Go, etc.
+
 ## Major Concepts
 *[Back to Top](#table-of-contents)*
 
@@ -23,9 +33,9 @@ The request-response cycle refers to the flow of requests and responses between 
 
 Let's first start with definitions for clients and servers, beginning with a generalization of each.
 
-A client is any program that acts as a "triggering process. Clients make requests that trigger reactions from servers."<sup>[4](#myfootnote4)</sup> Clients arbitrarily determine when to make requests and generally have to delay any further actions until they're received a response from the server.
+A client is any program that acts as a "triggering process. Clients make requests that trigger reactions from servers."<sup>[4](#footnote4)</sup> Clients arbitrarily determine when to make requests and generally have to delay any further actions until they're received a response from the server.
 
-A server is any program that functions as "a reactive process. A server waits for requests to be made and then reacts to them."<sup>[4](#myfootnote4)</sup>
+A server is any program that functions as "a reactive process. A server waits for requests to be made and then reacts to them."<sup>[4](#footnote4)</sup>
 
 In the context of the web, a client is most often an application running in the browser. The client connects to a server in order to make requests for data that can then be displayed in the browser. A server is a process running on a computer that receives requests, does the work specified in the request, and sends a response to the client indicating the outcome of that request.
 
@@ -62,11 +72,11 @@ I say abbreviated because in reality we would see far more properties on the obj
 
 REST stands for Representational State Transfer. Okay great, but what exactly does that mean?
 
-In a phrase, REST is an architectural style. It is neither a framework nor a library nor any sort of software. It is specifically an architectural style used to build web applications. A good definition of an architectural style is "a coordinated set of architectural constraints."<sup>[1](#myfootnote1)</sup> Put more simply, we impose a set of limitations or restrictions on the way we build our web application with the goal of improving some desired characteristic/s of our web application design.
+In a phrase, REST is an architectural style. It is neither a framework nor a library nor any sort of software. It is specifically an architectural style used to build web applications. A good definition of an architectural style is "a coordinated set of architectural constraints."<sup>[1](#footnote1)</sup> Put more simply, we impose a set of limitations or restrictions on the way we build our web application with the goal of improving some desired characteristic/s of our web application design.
 
-Below I list all of the constraints imposed by REST<sup>[2](#myfootnote2)</sup>, however I don't discuss all of them in detail. I instead focus on those most relevant to the exercise included in this repo. I encourage you to follow the link provided in footnote #2 some time after you have completed the exercises. This link will take you to the source material on REST and allow you to read about the other constraints.
+Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, however I don't discuss all of them in detail. I instead focus on those most relevant to the exercise included in this repo. I encourage you to follow the link provided in footnote #2 some time after you have completed the exercises. This link will take you to the dissertation written by the originator of the REST architecural style and allow you to read about the other constraints.
 
-1. Client-Server<sup>[3](#myfootnote3)</sup>
+1. Client-Server<sup>[3](#footnote3)</sup>
     - Constraint Imposed:
         - There must be a clear separation of concerns between the client and the server.
         - The client is concerned with UI and translating user input into requests to be sent to the server, often for data/media.
@@ -177,7 +187,7 @@ Let's retry the interaction:
         - StatusCode: `201`!
 * Robot A: 
     - **receives response**
-        - *Looks like my data was successfully stored!*
+        - *Based on the StatusCode, I can see that my request was successful so my data was successfully stored!*
 * Robot C:
     - **sends a request to Robot B**:
         - Verb: `GET`!
@@ -190,24 +200,33 @@ Let's retry the interaction:
         - Data: JSON File
 * Robot C: 
     - **receives response**
-        - *Perfect! I received the data I wanted.*
+        - *Perfect! Based on the StatusCode, I can see that my request was successful and I have received the data I want.*
 
 #### RESTful Thought Experiment Analysis
 *[Back to Top](#table-of-contents)*
 
-<!-- Some simplifications were made for the sake of the example. We did not discuss headers, meta-data, what exactly is meant by stateless transfer. These topics warrant greater discussion but for now we are building out our mental model of what REST means and how the request-response cycle fits into REST. -->
+You may have guessed that, in the context of the request-response cycle and client-server relationship, Robots A and C were acting as clients sending requests to Robot B, who was acting as a server.
+
+Notice how in the first example, the server was unable to process the requests because the server had no idea what kind of resource it had to work with. Remember, the server is stateless, so the server has no memory of previous requests. All the information that the server needs to process the request must be transmitted as part of the request.
+
+In the second example, we added the missing piece which was a URL that describes the resource in question. Via the combination of an HTTP Verb and a URL, Robot B was able to figure out what to do with the resource.
+
+Note that some simplifications were made for the sake of discussion. In reality, clients and servers can communicate with more than just StatusCodes and HTTP Verbs. For example, they can send headers that describe the type of data being transmitted. The headers may also indicate which resources the client is allowed to see. There may also be other meta-data transmitted as part of the request that the server needs in order to fulfill said request.
+
+As you continue to learn more about HTTP Requests, you will begin to make use of headers and other properties on the request/response objects. For now, as I've mentioned previously, we have enough to build up a mental model of how HTTP Requests work in the context of REST.
 
 ## References
 *[Back to Top](#table-of-contents)*
 
-<a name="myfootnote1">1</a>: https://www.ics.uci.edu/~fielding/pubs/dissertation/introduction.htm
+The discussion of REST draws heavily from Roy Thomas Fielding's doctoral dissertation titled: [Architectural Styles and
+the Design of Network-based Software Architectures](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm). Uses of the word "dissertation" hereafter refer to this document.
 
-<a name="myfootnote2">2</a>: I encourage you to read the dissertation on this topic over some weekend.
+<a name="footnote1">1</a>: https://www.ics.uci.edu/~fielding/pubs/dissertation/introduction.htm
+
+<a name="footnote2">2</a>: I encourage you to read up on this topic over some weekend.
 https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
-<a name="myfootnote3">3</a>: For a great and concise explanation of the client-server relationship, read section 3.4.1 of the dissertation.
+<a name="footnote3">3</a>: For a great and concise explanation of the client-server relationship, read section 3.4.1.
 https://www.ics.uci.edu/~fielding/pubs/dissertation/net_arch_styles.htm#sec_3_4_1
 
-<a name="myfootnote4">4</a>: I found this citation in the dissertation for this description of clients and servers. G. Andrews. Paradigms for process interaction in distributed programs. ACM Computing Surveys, 23(1), Mar. 1991, pp. 49-90.
-
-https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm
+<a name="footnote4">4</a>: The following citation can be found in the dissertation. The citation is for a description of clients and servers: G. Andrews. Paradigms for process interaction in distributed programs. ACM Computing Surveys, 23(1), Mar. 1991, pp. 49-90.
