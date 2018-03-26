@@ -5,7 +5,7 @@
 1. [Major Concepts](#major-concepts)
 1. [Request-Response Cycle](#request-response-cycle)
 1. [REST](#rest)
-1. [Communicating Accross the Web](#communicating-across-the-web)
+1. [Communicating Across the Web](#communicating-across-the-web)
 1. [RESTful Thought Experiment](#restful-thought-experiment)
 1. [RESTful Thought Experiment Analysis](#restful-thought-experiment-analysis)
 1. [References](#references)
@@ -13,13 +13,13 @@
 ## Introduction
 *[Back to Top](#table-of-contents)*
 
-This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) but have not yet been exposed to the concepts or REST or HTTP and have not yet written server-side code.
+This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) but have not yet been exposed to the concepts of REST or HTTP and have not yet written server-side code.
 
 It serves two purposes. 
 
 First, it serves the purpose of introducing Server-Side Concepts and REST. Below you will find a discussion of concepts that are important to developing an understanding of REST and HTTP.
 
-Second, it serves as a way of using a programming language to practice these concepts. Included in this repository is a directory titled `node-rest-server` that specifies a challenge and resources available to you to help you complete the challenge. You are to implement a REST server using Node.js. You will incremently build the REST server using the provided tests to guide you.
+Second, it serves as a way of using a programming language to practice these concepts. Included in this repository is a directory titled `node-rest-server` that specifies a challenge and resources available to you to help you complete the challenge. You are to implement a REST server using Node.js. You will incrementally build the REST server using the provided tests to guide you.
 
 I want to stress that although we are using Node.js to illustrate the concepts explored below, these concepts are not tied to any one specific programming language. Further iterations of this project will allow knowledge-seekers to implement a REST server in other languages e.g. Python, Java, Go, etc.
 
@@ -39,7 +39,7 @@ A server is any program that functions as "a reactive process. A server waits fo
 
 In the context of the web, a client is most often an application running in the browser. The client connects to a server in order to make requests for data that can then be displayed in the browser. A server is a process running on a computer that receives requests, does the work specified in the request, and sends a response to the client indicating the outcome of that request.
 
-When traveling over the internet, requests/responses are transmitted as formatted packages of data (network packets). When interacting with requests on the server and responses on the client, however, they take the form of in-memory objects. Since they take the form of in-memory objects, we can then access the data they contain as we would any other object.
+When travelling over the internet, requests/responses are transmitted as formatted packages of data (network packets). When interacting with requests on the server and responses on the client, however, they take the form of in-memory objects. Since they take the form of in-memory objects, we can then access the data they contain as we would any other object.
 
 Abbreviated example in-memory request object:
 ```javascript
@@ -74,7 +74,7 @@ REST stands for Representational State Transfer. Okay great, but what exactly do
 
 In a phrase, REST is an architectural style. It is neither a framework nor a library nor any sort of software. It is specifically an architectural style used to build web applications. A good definition of an architectural style is "a coordinated set of architectural constraints."<sup>[1](#footnote1)</sup> Put more simply, we impose a set of limitations or restrictions on the way we build our web application with the goal of improving some desired characteristic/s of our web application design.
 
-Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, however I don't discuss all of them in detail. I instead focus on those most relevant to the exercise included in this repo. I encourage you to follow the link provided in footnote #2 some time after you have completed the exercises. This link will take you to the dissertation written by the originator of the REST architecural style and allow you to read about the other constraints.
+Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, however I don't discuss all of them in detail. I instead focus on those most relevant to the exercise included in this repo. I encourage you to follow the link provided in footnote #2 some time after you have completed the exercises. This link will take you to the dissertation written by the originator of the REST architectural style and allow you to read about the other constraints.
 
 1. Client-Server<sup>[3](#footnote3)</sup>
     - Constraint Imposed:
@@ -98,11 +98,11 @@ Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, h
 4. Uniform Interface
     - Constraint Imposed:
       - servers must separate the interface for making requests from the implementation details employed in servicing those requests. 
-      - Put another way, the computational logic necessary to fulfill a request should be separate from the "buttons" to be pushed that initiate the request.
+      - Put another way, the computational logic necessary to fulfil a request should be separate from the "buttons" to be pushed that initiate the request.
       - These uniform interfaces or "buttons" take the form of a set of endpoints (URLs) to which clients can make HTTP requests and receive responses that contain the desired information. 
-      - See [Communicating Accross the Web](#communicating-across-the-web) for a further detail.
+      - See [Communicating Across the Web](#communicating-across-the-web) for a further detail.
     - Resulting Improvement:
-      - Any client can connect to a server and use the interface to make requests. The client has no need to have any knowledge of how the server actually fulfills the request as this is abstracted away.
+      - Any client can connect to a server and use the interface to make requests. The client has no need to have any knowledge of how the server actually fulfils the request as this is abstracted away.
 
 5. Layered System
 6. Code-On-Demand (Optional)
@@ -114,7 +114,7 @@ Now that we have an understanding of REST as an architectural style, let's discu
 
 In order to accomplish this, we use of a combination of HTTP (Hypertext Transfer Protocol) and URLs (Uniform Resource Locators).
 
-HTTP is the underlying set of rules for exchanging data between computers. It takes the form of a request-response cycle, as described above. When a client sends an HTTP request, the request includes all the data a server needs to process the request. Doing so allows us to fulfill the second principle of REST (stateless). One of the most important pieces of data included in the request is an Action Verb that describes what Action the request wishes to take with respect to a "resource". The most commonly used verbs are `GET`, `POST`, `PUT`, and `DELETE`.
+HTTP is the underlying set of rules for exchanging data between computers. It takes the form of a request-response cycle, as described above. When a client sends an HTTP request, the request includes all the data a server needs to process the request. Doing so allows us to fulfil the second principle of REST (stateless). One of the most important pieces of data included in the request is an Action Verb that describes what Action the request wishes to take with respect to a "resource". The most commonly used verbs are `GET`, `POST`, `PUT`, and `DELETE`.
 
 Verb meanings:
   - `GET` retrieves data
@@ -211,7 +211,7 @@ Notice how in the first example, the server was unable to process the requests b
 
 In the second example, we added the missing piece which was a URL that describes the resource in question. Via the combination of an HTTP Verb and a URL, Robot B was able to figure out what to do with the resource.
 
-Note that some simplifications were made for the sake of discussion. In reality, clients and servers can communicate with more than just StatusCodes and HTTP Verbs. For example, they can send headers that describe the type of data being transmitted. The headers may also indicate which resources the client is allowed to see. There may also be other meta-data transmitted as part of the request that the server needs in order to fulfill said request.
+Note that some simplifications were made for the sake of discussion. In reality, clients and servers can communicate with more than just StatusCodes and HTTP Verbs. For example, they can send headers that describe the type of data being transmitted. The headers may also indicate which resources the client is allowed to see. There may also be other meta-data transmitted as part of the request that the server needs in order to fulfil said request.
 
 As you continue to learn more about HTTP Requests, you will begin to make use of headers and other properties on the request/response objects. For now, as I've mentioned previously, we have enough to build up a mental model of how HTTP Requests work in the context of REST.
 

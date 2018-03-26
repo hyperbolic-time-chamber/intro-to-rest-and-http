@@ -3,6 +3,13 @@
 ## Overview
 
 ## Prerequisite Technologies
+- [Node.js version 8.10.0 (LTS)](https://nodejs.org/en/download/)
+- [npm version 5.6.0](https://docs.npmjs.com/) (comes installed with Node)
+- [Postman](https://www.getpostman.com/)
+
+Note that we will not be using a web application framework for this exercise i.e. you are to implement this API without express.js, hapi.js, koa.js, etc.
+
+#### Postman
 
 ## API Specification
 
