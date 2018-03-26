@@ -6,9 +6,10 @@
 1.  [Prerequisite Technologies](#prerequisite-technologies)
 1.  [Postman](#postman)
 1.  [API Specification](#api-specification)
-1.  [Node.js](#node.js)
+1.  [Node.js](#nodejs)
 1.  [What is it?](#what-is-it)
-1.  [Node.js Basics](#node.js-basics)
+1.  [Node.js Basics](#nodejs-basics)
+1.  [How to Create a Server](#how-to-create-a-server)
 1.  [npm](#npm)
 
 ## Overview
@@ -169,7 +170,7 @@ var helpers = require('./helpers/utils');
 var car = require('./models/car');
 ```
 
-Additional examples of `require` statements and how to use `module.exports` to import what is exported from a file:
+Additional examples of `require` statements and how to use `module.exports`:
 
 ```javascript
 // arithmetic.js
@@ -265,13 +266,23 @@ var server = http.createServer(function(req, res) {
 server.listen(1337, '127.0.0.1');
 ```
 
-<!-- #### Helpful Resources
+#### How to Create a Server?
 
-[http module](https://nodejs.org/dist/latest-v8.x/docs/api/http.html)
+_[Back to Top](#table-of-contents)_
 
-[url module](https://nodejs.org/dist/latest-v8.x/docs/api/url.html)
+Let's take a deeper dive into the above example, reposted below:
 
-[path module](https://nodejs.org/dist/latest-v8.x/docs/api/path.html) -->
+```javascript
+var http = require('http');
+
+var server = http.createServer(function(req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.write('Hello World!');
+  res.end();
+});
+
+server.listen(1337, '127.0.0.1');
+```
 
 ## npm
 

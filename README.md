@@ -87,17 +87,17 @@ Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, h
       * There must be a clear separation of concerns between the client and the server.
       * The client is concerned with UI and translating user input into requests to be sent to the server, often for data/media.
       * The server is concerned with responding to these requests.
-      * servers open themselves up for connection and clients connect to servers. Multiple clients can connect to one server.
+      * Servers open themselves up for connection and clients connect to servers. Multiple clients can connect to one server.
     * Resulting Improvement:
-      * clients and servers can now be scaled and maintained independently of one another.
+      * Clients and servers can now be scaled and maintained independently of one another.
 
 2.  Stateless
 
     * Constraint Imposed:
-      * servers don't carry state i.e. servers do not store information related to previous requests.
+      * Servers don't carry state i.e. servers do not store information related to previous requests.
       * Since servers don't carry state, any incoming request MUST include all of the information that a server needs to process the request.
     * Resulting Improvement:
-      * servers are more scalable and maintainable as they don't need to allocate memory for state.
+      * Servers are more scalable and maintainable as they don't need to allocate memory for state.
       * There are no external variables that might affect the outcome of a request since all requests are self-contained i.e. they contain all the information a server needs to process the request.
 
 3.  Cache
@@ -105,7 +105,7 @@ Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, h
 4.  Uniform Interface
 
     * Constraint Imposed:
-      * servers must separate the interface for making requests from the implementation details employed in servicing those requests.
+      * Servers must separate the interface for making requests from the implementation details employed in servicing those requests.
       * Put another way, the computational logic necessary to fulfil a request should be separate from the "buttons" to be pushed that initiate the request.
       * These uniform interfaces or "buttons" take the form of a set of endpoints (URLs) to which clients can make HTTP requests and receive responses that contain the desired information.
       * See [Communicating Across the Web](#communicating-across-the-web) for a further detail.
