@@ -3,14 +3,15 @@
 ## Table of Contents
 
 1.  [Overview](#overview)
+1.  [Setup](#setup)
 1.  [Prerequisite Technologies](#prerequisite-technologies)
 1.  [Postman](#postman)
 1.  [API Specification](#api-specification)
 1.  [Node.js](#nodejs)
 1.  [What is it?](#what-is-it)
+1.  [npm](#npm)
 1.  [Node.js Basics](#nodejs-basics)
 1.  [How to Create a Server](#how-to-create-a-server)
-1.  [npm](#npm)
 
 ## Overview
 
@@ -18,13 +19,25 @@ _[Back to Top](#table-of-contents)_
 
 We are going to build a RESTful API using Node.js.
 
-Our RESTful API will expose an interface that allows us to retrieve, send, modify, and delete data related to restaurants and cities. See [API Specification](#api-specification) for more detailed instructions. We will be applying what we learned about REST and HTTP throughout this exercise.
+Our RESTful API will expose an interface that allows us to retrieve, send, modify, and delete data related to restaurants and cities. See [API Specification](#api-specification) for more detailed instructions. We will be applying what we learned about REST and HTTP throughout this exercise. We will be communicating using JSON as indicated by the `Content-Type` header that's given to you as part of the starter code.
 
-There will be no front-end for this application. You may be wondering, "how am I to use my API then?" You will use Postman to interrogate your server. See [Prerequisite Technologies](#prerequisite-technologies) for further explanation.
+There will be no front-end for this application. You may be wondering, "how am I to use my API then?" You will use Postman to interrogate your server. See [Postman](#postman) for further explanation.
 
 Use the tests to guide your implementation. Working through the tests in order will allow you to build up to a working implementation of this REST server.
 
-Once you have completed the exercise, take a moment to read through the README for Server-Side Concepts and REST as you will likely find that you have a better understanding of the concepts discussed given that you just completed an exercise putting the concepts into practice.
+You are encouraged to modularize your code. In particular, consider breaking up your codebase into separate files. You might have a file for your helper functions, a file for your request handlers, and file (given) for your server.
+
+Once you have completed the exercise, take a moment to read through the README for Server-Side Concepts and REST a second time as you will likely find that you have a better understanding of the concepts discussed given that you just completed an exercise putting the concepts into practice.
+
+#### Setup
+
+_[Back to Top](#table-of-contents)_
+
+Run in terminal: `npm install`
+To start server using `nodemon`: `npm run start:dev`
+To run tests: `npm test`
+
+**Be sure your server is running when you run your tests. Note that not all tests have been implemented. They are a work-in-progress.**
 
 ## Prerequisite Technologies
 
@@ -34,13 +47,27 @@ _[Back to Top](#table-of-contents)_
 * [npm version 5.6.0](https://docs.npmjs.com/) (comes installed with Node)
 * [Postman](https://www.getpostman.com/)
 
-Note that we will not be using a web application framework for this exercise i.e. you are to implement this API without express.js, hapi.js, koa.js, etc.
+Ensure that all of the above have been downloaded/installed. Note that we will not be using a web application framework for this exercise i.e. you are to implement this API without express.js, hapi.js, koa.js, etc.
 
 #### Postman
 
 _[Back to Top](#table-of-contents)_
 
-<!-- need to explain how to use postman -->
+Below is a series of screenshots meant to illustrate how to use Postman.
+
+Note that you are able to set an HTTP Action Verb, a URL, headers, and other information to be sent along with the request.
+
+When you're ready, you can click "Send" to send the request and the response will show up in the bottom portion of the page. We've set the format of the response seen below to JSON so that we can more easily read it.
+
+![example-get](https://gist.githubusercontent.com/kamirdjanian/8ec0aa269188c43051914b1b6084a937/raw/d023b5da85d6eb5e9b118cd7a79556761a0aa1c6/example-get-request-response.png)
+
+In the previous example, we made a `GET` request so there wasn't a `body` to attach to the request. In this example, we are making a `POST` request, so we need to attach the information that we want to `POST` to our server to our request.
+
+To do this, we navigate to the section titled `Body` and then we are able to input some data. Since our app is communicating in JSON we can set the data type to `raw` and then specify that we are sending JSON.
+
+As before, the response will show up in the section below the request information.
+
+![example-post-body](https://gist.githubusercontent.com/kamirdjanian/8ec0aa269188c43051914b1b6084a937/raw/d023b5da85d6eb5e9b118cd7a79556761a0aa1c6/example-post-body.png)
 
 ## API Specification
 
@@ -96,7 +123,7 @@ Example Response
 
 As shown above, each city object must contain the following properties:
 
-* id
+* id (generated server-side)
 * name
 * country
 * population
@@ -132,7 +159,7 @@ Example Response
 
 As shown above, each restaurant object must contain the following properties:
 
-* id
+* id (generated server-side)
 * name
 * city
 * price_level
@@ -154,6 +181,20 @@ To illustrate further, JavaScript that runs in the browser allows you to manipul
 JavaScript that runs on the server allows you to access files, write to databases, [open up ports](#how-to-create-a-server), [create servers](#how-to-create-a-server), etc.
 
 Just as JavaScript that runs in the browser is event-driven, so too is Node. This means that we retain all of the advantages of asynchronous non-blocking event-driven code on the server.
+
+#### npm
+
+_[Back to Top](#table-of-contents)_
+
+`npm` is package manager that is built into Node. It is used to manage dependencies. Although it's intuitive to assume that `npm` stands for `node package manager`, this is not the case. The foundation maintains that there is formal meaning behind the term `npm`.
+
+One of the best features of `npm` is the ability to create scripts to automate certain tasks.
+
+This exercise comes with a few scripts already. Take a moment to understand them.
+
+Know that the start and test scripts can simply be run by entering `npm start` and `npm test` in the terminal, respectively. Any custom scripts that you write must include the `run` keyword e.g. `npm run lint` or `npm run build`.
+
+`npm install` installs the dependencies listed in the `package.json`. `npm install _some-library_` installs a package. Adding the `--save-dev` flag saves it as a `devDependency`.
 
 #### Node.js Basics
 
@@ -325,9 +366,3 @@ Note that within the body of the `request-handler`, we are doing some work with 
 1.  Indicating that we are done servicing the request and sending a response back to whichever client initiated the request.
 
 After the last line of the code block runs, we will be able to make all sorts of requests to `http://localhost:1337`.
-
-## npm
-
-_[Back to Top](#table-of-contents)_
-
-<!-- need to explain what npm is and how to use it -->
