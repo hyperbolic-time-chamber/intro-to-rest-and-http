@@ -15,7 +15,7 @@
 
 _[Back to Top](#table-of-contents)_
 
-This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) but have not yet been exposed to the concepts of REST or HTTP and have not yet written server-side code.
+This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) but have had some exposure to the concepts of REST or HTTP but don't feel confident explaining them.
 
 It serves two purposes.
 
@@ -24,6 +24,16 @@ First, it serves the purpose of introducing Server-Side Concepts and REST. Below
 Second, it serves as a way of using a programming language to practice these concepts. Included in this repository is a directory titled `node-rest-server` that specifies a challenge and resources available to you to help you complete the challenge. You are to implement a REST server using Node.js. You will incrementally build the REST server using the provided tests to guide you.
 
 I want to stress that although we are using Node.js to illustrate the concepts explored below, these concepts are not tied to any one specific programming language. Further iterations of this project will allow knowledge-seekers to implement a REST server in other languages e.g. Python, Java, Go, etc.
+
+Workflow:
+
+* Fork and clone this repo.
+* Add a remote so you can pull down any updates to the repo.
+  * HTTPS: `git remote add upstream https://github.com/hyperbolic-time-chamber/intro-to-rest-and-http.git`
+  * SSH: `git remote add upstream git@github.com:hyperbolic-time-chamber/intro-to-rest-and-http.git`
+* Read through the content here once (it's okay if it doesn't al make sense).
+* Work on the challenge located in `node-rest-server` (you don't have to complete all of it).
+* Read through the content here a second time and look to clarify any misunderstandings.
 
 ## Major Concepts
 
