@@ -31,7 +31,7 @@ Workflow:
 * Add a remote so you can pull down any updates to the repo.
   * HTTPS: `git remote add upstream https://github.com/hyperbolic-time-chamber/intro-to-rest-and-http.git`
   * SSH: `git remote add upstream git@github.com:hyperbolic-time-chamber/intro-to-rest-and-http.git`
-* Read through the content here once (it's okay if it doesn't al make sense).
+* Read through the content here once (it's okay if it doesn't all make sense).
 * Work on the challenge located in `node-rest-server` (you don't have to complete all of it).
 * Read through the content here a second time and look to clarify any misunderstandings.
 
