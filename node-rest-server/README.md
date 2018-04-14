@@ -19,7 +19,7 @@ _[Back to Top](#table-of-contents)_
 
 We are going to build a RESTful API using Node.js.
 
-Our RESTful API will expose an interface that allows us to retrieve, send, modify, and delete data related to restaurants and cities. See [API Specification](#api-specification) for more detailed instructions. We will be applying what we learned about REST and HTTP throughout this exercise. We will be communicating using JSON as indicated by the `Content-Type` header that's given to you as part of the starter code.
+Our RESTful API will expose an interface that allows us to retrieve and send data related to restaurants and cities. See [API Specification](#api-specification) for more detailed instructions. We will be applying what we learned about REST and HTTP throughout this exercise. We will be communicating using JSON as indicated by the `Content-Type` header that's given to you as part of the starter code.
 
 There will be no front-end for this application. You may be wondering, "how am I to use my API then?" You will use Postman to interrogate your server. See [Postman](#postman) for further explanation.
 
@@ -29,6 +29,8 @@ You are encouraged to modularize your code. In particular, consider breaking up 
 
 Once you have completed the exercise, take a moment to read through the README for Server-Side Concepts and REST a second time as you will likely find that you have a better understanding of the concepts discussed given that you just completed an exercise putting the concepts into practice.
 
+You can check out the solution branch at any time to see a working implementation, although you are encouraged to do so only after making a solid attempt at the exercise.
+
 #### Setup
 
 _[Back to Top](#table-of-contents)_
@@ -37,7 +39,9 @@ Run in terminal: `npm install`
 To start server using `nodemon`: `npm run start:dev`
 To run tests: `npm test`
 
-**Be sure your server is running when you run your tests. Note that not all tests have been implemented. They are a work-in-progress.**
+**Be sure your server is running when you run your tests.**
+
+**Be sure to run the script `npm test` instead of just `jest` so that you are using the version of Jest included in this exercise.**
 
 ## Prerequisite Technologies
 
@@ -75,18 +79,12 @@ _[Back to Top](#table-of-contents)_
 
 Expose the following endpoints and respond to requests according to the result column listed below.
 
-|              URL               | HTTP Verb | Request Body |                                          Result                                           |
-| :----------------------------: | :-------: | :----------: | :---------------------------------------------------------------------------------------: |
-|     /api/locations/cities      |    GET    |    empty     |                   Respond with JSON of all cities stored in the server.                   |
-|     /api/locations/cities      |   POST    |     JSON     |               Create a new city and respond with JSON of the created city.                |
-|   /api/locations/cities/:id    |    PUT    |     JSON     |       Update the city with matching `id` and respond with JSON of the updated city.       |
-|   /api/locations/cities/:id    |  DELETE   |     JSON     |       Delete the city with matching `id` and respond with JSON of the deleted city.       |
-|   /api/locations/restaurants   |    GET    |    empty     |                Respond with JSON of all restaurants stored in the server.                 |
-|   /api/locations/restaurants   |   POST    |     JSON     |         Create a new restaurant and respond with JSON of the created restaurant.          |
-| /api/locations/restaurants/:id |    PUT    |     JSON     | Update the restaurant with matching `id` and respond with JSON of the updated restaurant. |
-| /api/locations/restaurants/:id |  DELETE   |     JSON     | Delete the restaurant with matching `id` and respond with JSON of the deleted restaurant. |
-
-Prioritize responding to `GET` and `POST` requests for each endpoint. Once these are complete, work on responding to `PUT` and `DELETE` requests.
+|            URL             | HTTP Verb | Request Body |                                  Result                                  |
+| :------------------------: | :-------: | :----------: | :----------------------------------------------------------------------: |
+|   /api/locations/cities    |    GET    |    empty     |          Respond with JSON of all cities stored in the server.           |
+|   /api/locations/cities    |   POST    |     JSON     |       Create a new city and respond with JSON of the created city.       |
+| /api/locations/restaurants |    GET    |    empty     |        Respond with JSON of all restaurants stored in the server.        |
+| /api/locations/restaurants |   POST    |     JSON     | Create a new restaurant and respond with JSON of the created restaurant. |
 
 Example Request
 
