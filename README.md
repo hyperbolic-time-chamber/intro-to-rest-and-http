@@ -15,7 +15,7 @@
 
 _[Back to Top](#table-of-contents)_
 
-This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) but have had some exposure to the concepts of REST or HTTP but don't feel confident explaining them.
+This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) and have had some exposure to the concepts of REST or HTTP but don't feel confident explaining them.
 
 It serves two purposes.
 
