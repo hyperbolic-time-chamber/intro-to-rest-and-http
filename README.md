@@ -116,11 +116,11 @@ Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, h
 
     * Constraint Imposed:
       * Servers must separate the interface for making requests from the implementation details employed in servicing those requests.
-      * Put another way, the computational logic necessary to fulfil a request should be separate from the "buttons" to be pushed that initiate the request.
+      * Put another way, the computational logic necessary to fulfill a request should be separate from the "buttons" to be pushed that initiate the request.
       * These uniform interfaces or "buttons" take the form of a set of endpoints (URLs) to which clients can make HTTP requests and receive responses that contain the desired information.
       * See [Communicating Across the Web](#communicating-across-the-web) for a further detail.
     * Resulting Improvement:
-      * Any client can connect to a server and use the interface to make requests. The client has no need to have any knowledge of how the server actually fulfils the request as this is abstracted away.
+      * Any client can connect to a server and use the interface to make requests. The client has no need to have any knowledge of how the server actually fulfills the request as this is abstracted away.
 
 5.  Layered System
 6.  Code-On-Demand (Optional)
@@ -133,7 +133,7 @@ Now that we have an understanding of REST as an architectural style, let's discu
 
 In order to accomplish this, we use of a combination of HTTP (Hypertext Transfer Protocol) and URLs (Uniform Resource Locators).
 
-HTTP is the underlying set of rules for exchanging data between computers. It takes the form of a request-response cycle, as described above. When a client sends an HTTP request, the request includes all the data a server needs to process the request. Doing so allows us to fulfil the second principle of REST (stateless). One of the most important pieces of data included in the request is an Action Verb that describes what Action the request wishes to take with respect to a "resource". The most commonly used verbs are `GET`, `POST`, `PUT`, and `DELETE`.
+HTTP is the underlying set of rules for exchanging data between computers. It takes the form of a request-response cycle, as described above. When a client sends an HTTP request, the request includes all the data a server needs to process the request. Doing so allows us to fulfill the second principle of REST (statelessness). One of the most important pieces of data included in the request is an Action Verb that describes what Action the request wishes to take with respect to a "resource". The most commonly used verbs are `GET`, `POST`, `PUT`, and `DELETE`.
 
 Verb meanings:
 
@@ -237,7 +237,7 @@ Notice how in the first example, the server was unable to process the requests b
 
 In the second example, we added the missing piece which was a URL that describes the resource in question. Via the combination of an HTTP Verb and a URL, Robot B was able to figure out what to do with the resource.
 
-Note that some simplifications were made for the sake of discussion. In reality, clients and servers can communicate with more than just StatusCodes and HTTP Verbs. For example, they can send headers that describe the type of data being transmitted. The headers may also indicate which resources the client is allowed to see. There may also be other meta-data transmitted as part of the request that the server needs in order to fulfil said request.
+Note that some simplifications were made for the sake of discussion. In reality, clients and servers can communicate with more than just StatusCodes and HTTP Verbs. For example, they can send headers that describe the type of data being transmitted. The headers may also indicate which resources the client is allowed to see. There may also be other meta-data transmitted as part of the request that the server needs in order to fulfill said request.
 
 As you continue to learn more about HTTP Requests, you will begin to make use of headers and other properties on the request/response objects. For now, as I've mentioned previously, we have enough to build up a mental model of how HTTP Requests work in the context of REST.
 
