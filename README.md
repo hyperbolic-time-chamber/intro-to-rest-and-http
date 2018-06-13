@@ -15,7 +15,7 @@
 
 _[Back to Top](#table-of-contents)_
 
-This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) and have had some exposure to the concepts of REST or HTTP but don't feel confident explaining them.
+This repository is meant for individuals who have a basic understanding of a programming language (e.g. Python, JavaScript, Java) and have had some exposure to the concepts of REST and/or HTTP but don't feel confident explaining them.
 
 It serves two purposes.
 
@@ -27,13 +27,13 @@ I want to stress that although we are using Node.js to illustrate the concepts e
 
 Workflow:
 
-* Fork and clone this repo.
-* Add a remote so you can pull down any updates to the repo.
-  * HTTPS: `git remote add upstream https://github.com/hyperbolic-time-chamber/intro-to-rest-and-http.git`
-  * SSH: `git remote add upstream git@github.com:hyperbolic-time-chamber/intro-to-rest-and-http.git`
-* Read through the content here once (it's okay if it doesn't all make sense).
-* Work on the challenge located in `node-rest-server` (you don't have to complete all of it).
-* Read through the content here a second time and look to clarify any misunderstandings.
+- Fork and clone this repo.
+- Add a remote so you can pull down any updates to the repo.
+  - HTTPS: `git remote add upstream https://github.com/hyperbolic-time-chamber/intro-to-rest-and-http.git`
+  - SSH: `git remote add upstream git@github.com:hyperbolic-time-chamber/intro-to-rest-and-http.git`
+- Read through the content here once (it's okay if it doesn't all make sense).
+- Work on the challenge located in the `node-rest-server` directory.
+- Read through the content here a second time and look to clarify any misunderstandings.
 
 ## Major Concepts
 
@@ -51,9 +51,9 @@ A server is any program that functions as "a reactive process. A server waits fo
 
 In the context of the web, a client is most often an application running in the browser. The client connects to a server in order to make requests for data that can then be displayed in the browser. A server is a process running on a computer that receives requests, does the work specified in the request, and sends a response to the client indicating the outcome of that request.
 
-When travelling over the internet, requests/responses are transmitted as formatted packages of data (network packets). When interacting with requests on the server and responses on the client, however, they take the form of in-memory objects. Since they take the form of in-memory objects, we can then access the data they contain as we would any other object.
+When travelling over the internet, requests/responses are transmitted as formatted packages of data (network packets). When interacting with requests on the server and responses on the client via our code, however, they take the form of in-memory objects. Since they take the form of in-memory objects, we can then access the data they contain as we would any other object.
 
-Abbreviated example in-memory request object:
+Abbreviated example of an in-memory request object:
 
 ```javascript
 {
@@ -66,7 +66,7 @@ Abbreviated example in-memory request object:
 }
 ```
 
-Abbreviated example in-memory response object:
+Abbreviated example of an in-memory response object:
 
 ```javascript
 {
@@ -89,41 +89,43 @@ REST stands for Representational State Transfer. Okay great, but what exactly do
 
 In a phrase, REST is an architectural style. It is neither a framework nor a library nor any sort of software. It is specifically an architectural style used to build web applications. A good definition of an architectural style is "a coordinated set of architectural constraints."<sup>[1](#footnote1)</sup> Put more simply, we impose a set of limitations or restrictions on the way we build our web application with the goal of improving some desired characteristic/s of our web application design.
 
-Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, however I don't discuss all of them in detail. I instead focus on those most relevant to the exercise included in this repo. I encourage you to follow the link provided in footnote #2 some time after you have completed the exercises. This link will take you to the dissertation written by the originator of the REST architectural style and allow you to read about the other constraints.
+Below I list all of the constraints imposed by REST<sup>[2](#footnote2)</sup>, however I don't discuss all of them in detail. I instead focus on those most relevant to the exercise included in this repo. I encourage you to follow the link provided in footnote #2 some time after you have completed the exercises. This link will take you to the dissertation written by Dr. Roy Thomas Fielding, the originator of the REST architectural style, and allow you to read about the other constraints.
 
 1.  Client-Server<sup>[3](#footnote3)</sup>
 
-    * Constraint Imposed:
-      * There must be a clear separation of concerns between the client and the server.
-      * The client is concerned with UI and translating user input into requests to be sent to the server, often for data/media.
-      * The server is concerned with responding to these requests.
-      * Servers open themselves up for connection and clients connect to servers. Multiple clients can connect to one server.
-    * Resulting Improvement:
-      * Clients and servers can now be scaled and maintained independently of one another.
+    - Constraint Imposed:
+      - There must be a clear separation of concerns between the client and the server.
+      - The client is concerned with UI and translating user input into requests to be sent to the server, often for data/media.
+      - The server is concerned with responding to these requests.
+      - Servers open themselves up for connection and clients connect to servers. Multiple clients can connect to one server.
+    - Resulting Improvement:
+      - Clients and servers can now be scaled and maintained independently of one another.
 
 2.  Stateless
 
-    * Constraint Imposed:
-      * Servers don't carry state i.e. servers do not store information related to previous requests.
-      * Since servers don't carry state, any incoming request MUST include all of the information that a server needs to process the request.
-    * Resulting Improvement:
-      * Servers are more scalable and maintainable as they don't need to allocate memory for state.
-      * There are no external variables that might affect the outcome of a request since all requests are self-contained i.e. they contain all the information a server needs to process the request.
+    - Constraint Imposed:
+      - Servers don't carry state i.e. servers do not store information related to previous requests.
+      - Since servers don't carry state, any incoming request MUST include all of the information that a server needs to process the request.
+    - Resulting Improvement:
+      - Servers are more scalable and maintainable as they don't need to allocate memory for state.
+      - There are no external variables that might affect the outcome of a request since all requests are self-contained i.e. they contain all the information a server needs to process the request.
 
 3.  Cache
 
 4.  Uniform Interface
 
-    * Constraint Imposed:
-      * Servers must separate the interface for making requests from the implementation details employed in servicing those requests.
-      * Put another way, the computational logic necessary to fulfill a request should be separate from the "buttons" to be pushed that initiate the request.
-      * These uniform interfaces or "buttons" take the form of a set of endpoints (URLs) to which clients can make HTTP requests and receive responses that contain the desired information.
-      * See [Communicating Across the Web](#communicating-across-the-web) for a further detail.
-    * Resulting Improvement:
-      * Any client can connect to a server and use the interface to make requests. The client has no need to have any knowledge of how the server actually fulfills the request as this is abstracted away.
+    - Constraint Imposed:
+      - Servers must separate the interface for making requests from the implementation details employed in servicing those requests.
+      - Put another way, the computational logic necessary to fulfill a request should be separate from the "buttons" to be pushed that initiate the request.
+      - These uniform interfaces or "buttons" take the form of a set of endpoints (URLs) to which clients can make HTTP requests and receive responses that contain the desired information.
+      - See [Communicating Across the Web](#communicating-across-the-web) for a further detail.
+    - Resulting Improvement:
+      - Any client can connect to a server and use the interface to make requests. The client has no need to have any knowledge of how the server actually fulfills the request as this is abstracted away.
 
 5.  Layered System
 6.  Code-On-Demand (Optional)
+
+So when we say an API is RESTful, we mean that it conforms to all of the constraints specified above (constraint 6 is optional).
 
 #### Communicating Across the Web
 
@@ -137,16 +139,16 @@ HTTP is the underlying set of rules for exchanging data between computers. It ta
 
 Verb meanings:
 
-* `GET` retrieves data
-* `POST` sends data
-* `PUT` update existing data
-* `DELETE` deletes data
+- `GET` retrieves data
+- `POST` sends data (most often to be stored in a database for example)
+- `PUT` update existing data
+- `DELETE` deletes data
 
 A URL, also commonly called an "endpoint", describes a resource that can be located on the web. The term "resource" can be loosely interpreted to be any of sort of data or media (JSON, images, text, etc.) We can examine the following URL to see an example of this: [https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming](https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming).
 
-This URL actually gives us a lot of information about the resource we are requesting. Given that the word "questions" comes right after the domain, we can assume that we are requesting a question. It would also be reasonable to assume that the number located in the middle of the URL may be some sort of unique identifier for the question. The last portion of the url then names the specific question we are viewing on Stack Overflow. Putting all the pieces together, we can see how this URL describes a resource (a question of interest on Stack Overflow) that we can access via the web.
+This URL gives us a lot of information about the resource we are requesting. Given that the word "questions" comes right after the domain, we can assume that we are requesting a question. It would also be reasonable to assume that the number located in the middle of the URL may be some sort of unique identifier for the question. The last portion of the url then names the specific question we are viewing on Stack Overflow. Putting all the pieces together, we can see how this URL describes a resource (a question of interest on Stack Overflow) that we can access via the web.
 
-**The combination of HTTP Requests and URLs allows us to make requests for resources. More specifically, the interface for a making requests to a server, one that is constructed according to the fourth principle of REST (uniform-interface), takes the form of a combination of a url that describes a resource and a verb that describes what we want to do with that resource. Put yet another way, when we say an API is RESTful, we typically mean that a server exposes a uniform interface (a set of endpoints) to which we can make requests using HTTP.**
+**The combination of HTTP Requests and URLs allows us to make requests for resources. More specifically, the interface for making requests to a server, one that is constructed according to the fourth principle of REST (uniform-interface), takes the form of a combination of a url that describes a resource and a verb that describes what we want to do with that resource.**
 
 For example, a `GET` request to `https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming` gives us the HTML we need to see the question in the browser.
 
@@ -164,35 +166,35 @@ The caveat is that these robots, while capable of thought, have very limited spe
 
 In fact, their speech is so limited that Robots A and C are only able to send requests to Robot B that contain the following:
 
-* Verb (most commonly `GET`, `POST`, `PUT`, and `DELETE`)
-* Data (Optional)
+- Verb (most commonly `GET`, `POST`, `PUT`, and `DELETE`)
+- Data (Optional)
 
 Robot B is only able to send responses to Robots A and C that contain the following:
 
-* StatusCode (a number that describes the outcome of a request)
-* Data (Optional)
+- StatusCode (a number that describes the outcome of a request)
+- Data (Optional)
 
 Given these constraints, you can imagine that Robot B might easily get confused by what Robots A and C and trying to tell it. The interaction might go something like this:
 
-* Robot A:
-  * **sends a request to Robot B**:
-    * Data: JSON File
-    * Verb: `POST`!
-* Robot B:
-  * **attempts to process request**
-    * _What do I do with this JSON file...the other robot said `POST`, but `POST` it where? What is this data in the first place? Where do I record this data? What am I doing? What is my purpose...?_
-* Robot A:
-  * **waiting for response**
-    * _I don't seem to be getting any response back...wonder what Robot B is doing..._
-* Robot C:
-  * **sends a request to Robot B**:
-    * Verb: `GET`!
-* Robot B:
-  * **attempts to process request**
-    * _`GET` WHAT?!?_
-* Robot C:
-  * **waiting for response**
-    * _Robot B is such a slacker_
+- Robot A:
+  - **sends a request to Robot B**:
+    - Data: JSON File
+    - Verb: `POST`!
+- Robot B:
+  - **attempts to process request**
+    - _What do I do with this JSON file...the other robot said `POST`, but `POST` it where? What is this data in the first place? Where do I record this data? What am I doing? What is my purpose...?_
+- Robot A:
+  - **waiting for response**
+    - _I don't seem to be getting any response back...wonder what Robot B is doing..._
+- Robot C:
+  - **sends a request to Robot B**:
+    - Verb: `GET`!
+- Robot B:
+  - **attempts to process request**
+    - _`GET` WHAT?!?_
+- Robot C:
+  - **waiting for response**
+    - _Robot B is such a slacker_
 
 So this wasn't very successful. A single verb by itself isn't enough information for Robot B to determine how to respond to the request.
 
@@ -200,32 +202,32 @@ Upon learning this, the overlords of the robots decide to upgrade them and now t
 
 Let's retry the interaction:
 
-* Robot A:
-  * **sends a request to Robot B**:
-    * Data: JSON File
-    * Verb: `POST`!
-    * URL: `https://robot-repair-shop.io/repairs/12345/unable-to-pass-butter`
-* Robot B:
-  * **processes request**
-    * _Aha! I know where to put this now. Looks like the data sent to me relates to a repair to robot #12345 because this robot is unable to pass butter. I will find the section of my database that is responsible for storing this kind of data, save it, and respond with a status code indicating the `POST` was successful!_
-  * **sends a response to Robot A**
-    * StatusCode: `201`!
-* Robot A:
-  * **receives response**
-    * _Based on the StatusCode, I can see that my request was successful so my data was successfully stored!_
-* Robot C:
-  * **sends a request to Robot B**:
-    * Verb: `GET`!
-    * URL: `https://robot-repair-shop.io/repairs/12345/unable-to-pass-butter`
-* Robot B:
-  * **processes request**
-    * _Ah, looks like Robot C is requesting repair information related to robot #12345. Let me find that information in my database and send it over to Robot C._
-  * **sends a response to Robot C**
-    * StatusCode: `200`!
-    * Data: JSON File
-* Robot C:
-  * **receives response**
-    * _Perfect! Based on the StatusCode, I can see that my request was successful and I have received the data I want._
+- Robot A:
+  - **sends a request to Robot B**:
+    - Data: JSON File
+    - Verb: `POST`!
+    - URL: `https://robot-repair-shop.io/repairs/12345/unable-to-pass-butter`
+- Robot B:
+  - **processes request**
+    - _Aha! I know where to put this now. Looks like the data sent to me relates to a repair to robot #12345 because this robot is unable to pass butter. I will find the section of my database that is responsible for storing this kind of data, save it, and respond with a status code indicating the `POST` was successful!_
+  - **sends a response to Robot A**
+    - StatusCode: `201`!
+- Robot A:
+  - **receives response**
+    - _Based on the StatusCode, I can see that my request was successful so my data was successfully stored!_
+- Robot C:
+  - **sends a request to Robot B**:
+    - Verb: `GET`!
+    - URL: `https://robot-repair-shop.io/repairs/12345/unable-to-pass-butter`
+- Robot B:
+  - **processes request**
+    - _Ah, looks like Robot C is requesting repair information related to robot #12345. Let me find that information in my database and send it over to Robot C._
+  - **sends a response to Robot C**
+    - StatusCode: `200`!
+    - Data: JSON File
+- Robot C:
+  - **receives response**
+    - _Perfect! Based on the StatusCode, I can see that my request was successful and I have received the data I want._
 
 #### RESTful Thought Experiment Analysis
 
@@ -239,7 +241,7 @@ In the second example, we added the missing piece which was a URL that describes
 
 Note that some simplifications were made for the sake of discussion. In reality, clients and servers can communicate with more than just StatusCodes and HTTP Verbs. For example, they can send headers that describe the type of data being transmitted. The headers may also indicate which resources the client is allowed to see. There may also be other meta-data transmitted as part of the request that the server needs in order to fulfill said request.
 
-As you continue to learn more about HTTP Requests, you will begin to make use of headers and other properties on the request/response objects. For now, as I've mentioned previously, we have enough to build up a mental model of how HTTP Requests work in the context of REST.
+As you continue to learn more about HTTP Requests, you will begin to make use of headers and other properties on the request/response objects. For now, as I've mentioned previously, we have enough knowledge to construct a mental model of how HTTP Requests work in the context of REST.
 
 ## References
 
