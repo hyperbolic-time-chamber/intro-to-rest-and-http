@@ -174,7 +174,7 @@ Robot B is only able to send responses to Robots A and C that contain the follow
 - StatusCode (a number that describes the outcome of a request)
 - Data (Optional)
 
-Given these constraints, you can imagine that Robot B might easily get confused by what Robots A and C and trying to tell it. The interaction might go something like this:
+Given these constraints, you can imagine that Robot B might easily get confused by what Robots A and C are trying to tell it. The interaction might go something like this:
 
 - Robot A:
   - **sends a request to Robot B**:
