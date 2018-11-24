@@ -1,0 +1,29 @@
+{
+  "name": "rest-server",
+  "version": "1.0.0",
+  "description": "Intro to server-side concepts and REST using Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/server.js",
+    "start:dev": "nodemon app/server.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperbolic-time-chamber/intro-to-rest-and-http.git"
+  },
+  "author": "hyperbolic-time-chamber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyperbolic-time-chamber/intro-to-rest-and-http/issues"
+  },
+  "homepage": "https://github.com/hyperbolic-time-chamber/intro-to-rest-and-http#readme",
+  "devDependencies": {
+    "jest": "^22.4.4",
+    "nodemon": "^1.17.2"
+  },
+  "dependencies": {
+    "request": "^2.85.0"
+  }
+}
