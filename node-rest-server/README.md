@@ -53,7 +53,7 @@ _[Back to Top](#table-of-contents)_
 
 Ensure that all of the above have been downloaded/installed. Note that we will not be using a web application framework for this exercise i.e. you are to implement this API without express.js, hapi.js, koa.js, etc.
 
-#### Postman
+<!-- #### Postman
 
 _[Back to Top](#table-of-contents)_
 
@@ -71,7 +71,7 @@ To do this, we navigate to the section titled `Body` and then we are able to inp
 
 As before, the response will show up in the section below the request information.
 
-![example-post-body](https://gist.githubusercontent.com/dartharthur/8ec0aa269188c43051914b1b6084a937/raw/d023b5da85d6eb5e9b118cd7a79556761a0aa1c6/example-post-body.png)
+![example-post-body](https://gist.githubusercontent.com/dartharthur/8ec0aa269188c43051914b1b6084a937/raw/d023b5da85d6eb5e9b118cd7a79556761a0aa1c6/example-post-body.png) -->
 
 ## API Specification
 
