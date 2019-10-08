@@ -21,7 +21,8 @@ We are going to build a RESTful API using Node.js.
 
 Our RESTful API will expose an interface that allows us to retrieve and send data related to restaurants and cities. See [API Specification](#api-specification) for more detailed instructions. We will be applying what we learned about REST and HTTP throughout this exercise. We will be communicating using JSON as indicated by the `Content-Type` header that's given to you as part of the starter code.
 
-There will be no front-end for this application. You may be wondering, "how am I to use my API then?" You will use Postman to interrogate your server. See [Postman](#postman) for further explanation.
+There will be no front-end for this application. You may be wondering, "how am I to use my API then?" You will use Postman to interrogate your server. 
+<!-- See [Postman](#postman) for further explanation. -->
 
 Use the tests to guide your implementation. Working through the tests in order will allow you to build up to a working implementation of this REST server.
 
