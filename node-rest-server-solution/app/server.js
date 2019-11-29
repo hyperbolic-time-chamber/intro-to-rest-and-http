@@ -1,27 +1,25 @@
-var http = require('http');
-var url = require('url');
+const http = require('http');
+const url = require('url');
 
-var helpers = require('./helpers');
-var requestHandlers = require('./request-handlers');
+const helpers =  require('./helpers');
+const requestHandlers = require('./request-handlers');
+ 
+const PORT = 1337;
+const IP = '127.0.0.1';
 
-var PORT = 1337;
-var IP = '127.0.0.1';
-
-var router = {
+const router = {
   '/api/locations/cities': requestHandlers.cities,
   '/api/locations/restaurants': requestHandlers.restaurants,
 };
 
-var server = http.createServer(function(request, response) {
-  console.log('Serving ' + request.method + ' request to ' + request.url);
-
-  var route = router[url.parse(request.url).pathname];
+const server = http.createServer((request, response)=> {
+  console.log(`Serving ${request.method} request to ${request.url}`);
+  const route = router[url.parse(request.url).pathname];
   if (route) {
     route(request, response);
   } else {
     helpers.sendResponse(response, '', 404);
   }
 });
-
-console.log('Listening on http://' + IP + ':' + PORT);
+console.log(`Listening on http:// ${IP}${':'}${PORT}`);
 server.listen(PORT, IP);

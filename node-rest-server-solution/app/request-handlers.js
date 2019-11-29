@@ -1,35 +1,37 @@
-var helpers = require('./helpers');
+const helpers = require('./helpers');
 
-var cityCount = 0;
-var restaurantCount = 0;
+let cityCount = 0;
+let restaurantCount = 0;
 
-var cities = [];
-var restaurants = [];
+let cities = [];
+let restaurants = [];
 
-var cityActions = {
-  GET: function(request, response) {
+const cityActions = {
+  GET: (request, response)=> {
     helpers.sendResponse(response, { data: cities });
   },
 
-  POST: function(request, response) {
-    helpers.collectData(request, function(city) {
+  POST: async(request, response)=> {
+    try {
+       await helpers.collectData(request);
       cityCount += 1;
       city.id = cityCount;
       cities.push(city);
       helpers.sendResponse(response, city, 201);
-    });
-  },
+    } catch (error) {
+      
+    }
+  }
 };
 
-var restaurantActions = {
-  GET: function(request, response) {
+const restaurantActions = {
+  GET: (request, response)=> {
     helpers.sendResponse(response, { data: restaurants });
   },
 
-  POST: function(request, response) {
-    helpers.collectData(request, function(restaurant) {
-      var isValidRequest = helpers.checkRestaurantSubmission(restaurant);
-      console.log(isValidRequest);
+  POST: (request, response)=> {
+    helpers.collectData(request, (restaurant)=> {
+      const isValidRequest = helpers.checkRestaurantSubmission(restaurant);
       if (isValidRequest) {
         restaurantCount += 1;
         restaurant.id = restaurantCount;
@@ -38,7 +40,7 @@ var restaurantActions = {
       } else {
         helpers.sendResponse(
           response,
-          'Bad Request: Submitted restaurant information is incomplete.',
+          `Bad Request: Submitted restaurant information is incomplete.`,
           400
         );
       }
